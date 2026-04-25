@@ -1,0 +1,26 @@
+@import "tailwindcss";
+/* @plugin "daisyui"; */
+
+.bg-primary {
+  @apply bg-[#244D3F];
+}
+
+.bg-primary2 {
+  @apply bg-[#CBFADB];
+}
+.bg-red {
+  @apply bg-[#EF4444];
+}
+.bg-yellow {
+  @apply bg-[#EFAD44];
+}
+
+.bg-yellow {
+  @apply bg-[#F8FAFC];
+}
+.flexCenter {
+  @apply flex items-center justify-center;
+}
+.flexBetween {
+  @apply flex items-center justify-between;
+}
