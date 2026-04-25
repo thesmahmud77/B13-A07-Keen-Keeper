@@ -1,7 +1,7 @@
 import React from "react";
 
 const FriendsCard = ({ friendcard }) => {
-  console.log(friendcard);
+  //   console. log(friendcard);
   const { picture, name, tags, status } = friendcard;
   const statusColors = {
     overdue: "bg-red-500 text-white",
@@ -15,7 +15,11 @@ const FriendsCard = ({ friendcard }) => {
       </div>
       <h1 className="font-bold text-2xl my-5">{name}</h1>
       <button className="bg-[#CBFADB] px-8 py-2 rounded-full">{tags}</button>
-      <button className="bg-[#CBFADB] px-8 py-2 rounded-full">{status}</button>
+      <button
+        className={`${statusColors[status?.toLowerCase()]} px-8 py-2 rounded-full mt-2`}
+      >
+        {status}
+      </button>
     </div>
   );
 };
