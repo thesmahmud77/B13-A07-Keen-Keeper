@@ -28,3 +28,6 @@
 .textPrimary {
   @apply text-[#244D3F];
 }
+.btn-Primary {
+  @apply bg-[#244D3F] text-white font-semibold px-5 py-2 rounded-[5px];
+}
