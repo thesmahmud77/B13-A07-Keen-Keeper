@@ -7,16 +7,43 @@ const Navbar = () => {
     <MainContainer>
       <div className="flexBetween">
         <div>
-          <NavLink>
+          <NavLink to={"/"} className={"text-2xl font-bold"}>
             <h1>
-              Keen <span className="bg-primary">Keeper</span>
+              Keen <span className="textPrimary">Keeper</span>
             </h1>
           </NavLink>
         </div>
         <div>
-          <NavLink>Home</NavLink>
-          <NavLink>Timeline</NavLink>
-          <NavLink>States</NavLink>
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              isActive
+                ? "bgPrimary text-white font-semibold px-5 py-2 rounded-[5px]"
+                : "text-gray-500 font-semibold px-5 py-2 rounded-[5px]"
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to={"/timeline"}
+            className={({ isActive }) =>
+              isActive
+                ? "bgPrimary text-white font-semibold px-5 py-2 rounded-[5px]"
+                : "text-gray-500 font-semibold px-5 py-2 rounded-[5px]"
+            }
+          >
+            Timeline
+          </NavLink>
+          <NavLink
+            to={"/states"}
+            className={({ isActive }) =>
+              isActive
+                ? "bgPrimary text-white font-semibold px-5 py-2 rounded-[5px]"
+                : "text-gray-500 font-semibold px-5 py-2 rounded-[5px]"
+            }
+          >
+            States
+          </NavLink>
         </div>
       </div>
     </MainContainer>

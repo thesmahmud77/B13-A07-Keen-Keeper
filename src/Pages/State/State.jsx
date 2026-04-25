@@ -1,10 +1,13 @@
 import React from "react";
+import MainContainer from "../../Container/MainContainer";
+import Navbar from "../../Components/Navbar";
 
 const State = () => {
   return (
-    <div>
+    <MainContainer>
+      <Navbar></Navbar>
       <h1>State</h1>
-    </div>
+    </MainContainer>
   );
 };
 

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 /* @plugin "daisyui"; */
 
-.bg-primary {
+.bgPrimary {
   @apply bg-[#244D3F];
 }
 
@@ -23,4 +23,8 @@
 }
 .flexBetween {
   @apply flex items-center justify-between;
+}
+
+.textPrimary {
+  @apply text-[#244D3F];
 }
