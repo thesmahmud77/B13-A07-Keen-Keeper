@@ -8,6 +8,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    loader: () => fetch("Friends.json"),
   },
   {
     path: "/timeline",
