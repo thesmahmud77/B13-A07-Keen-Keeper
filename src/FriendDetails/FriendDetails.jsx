@@ -1,6 +1,6 @@
 import React from "react";
 import MainContainer from "../Container/MainContainer";
-import { useParams } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import { HiOutlineBellSnooze } from "react-icons/hi2";
 import { IoArchiveOutline } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
@@ -9,8 +9,16 @@ import { MdTextsms } from "react-icons/md";
 import { FaVideo } from "react-icons/fa";
 
 const FriendDetails = () => {
-  //   const { id } = useParams();
+  const { paramsId } = useParams();
   //   console.log(id);
+  const friendData = useLoaderData();
+  console.log(friendData);
+
+  //   const firendsdetsils = friendData.find(
+  //     (data) => String(data.id) === paramsId,
+  //   );
+  //   console.log(firendsdetsils);
+
   return (
     <MainContainer>
       <div className="grid grid-cols-12 mx-auto gap-6 min-h-screen py-20">
