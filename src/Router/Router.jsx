@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router";
 import Home from "../Pages/Home/Home";
 import Timeline from "../Pages/Timeline/Timeline";
 import State from "../Pages/State/State";
+import FriendDetails from "../FriendDetails/FriendDetails";
 
 export const router = createBrowserRouter([
   {
@@ -17,5 +18,9 @@ export const router = createBrowserRouter([
   {
     path: "/states",
     element: <State></State>,
+  },
+  {
+    path: "/friends/:id",
+    element: <FriendDetails></FriendDetails>,
   },
 ]);
