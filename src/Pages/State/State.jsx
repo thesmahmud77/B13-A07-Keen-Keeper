@@ -5,7 +5,6 @@ import Navbar from "../../Components/Navbar";
 const State = () => {
   return (
     <MainContainer>
-      <Navbar></Navbar>
       <h1>State</h1>
     </MainContainer>
   );
