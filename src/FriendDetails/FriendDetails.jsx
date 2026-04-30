@@ -9,6 +9,7 @@ import { MdTextsms } from "react-icons/md";
 import { FaVideo } from "react-icons/fa";
 import useLoaderApps from "../Hooks/useLoaderApps";
 import { AuthContext } from "../Provider/AuthContent";
+import Swal from "sweetalert2";
 
 const FriendDetails = () => {
   const { id } = useParams();
@@ -32,6 +33,11 @@ const FriendDetails = () => {
     };
     // console.log(quickCheckData, "From Friends Details Page");
     setFriendInfo([...friendInfo, quickCheckData]);
+    Swal.fire({
+      title: "Call Added In Timeline",
+      icon: "success",
+      draggable: true,
+    });
   };
   const handleQuickText = () => {
     const quickCheckData = {
@@ -43,6 +49,11 @@ const FriendDetails = () => {
     };
     // console.log(quickCheckData, "From Friends Details Page");
     setFriendInfo([...friendInfo, quickCheckData]);
+    Swal.fire({
+      title: "Text Added In Timeline",
+      icon: "success",
+      draggable: true,
+    });
   };
   const handleQuickVideo = () => {
     const quickCheckData = {
@@ -54,42 +65,47 @@ const FriendDetails = () => {
     };
     // console.log(quickCheckData, "From Friends Details Page");
     setFriendInfo([...friendInfo, quickCheckData]);
+    Swal.fire({
+      title: "Video Added In Timeline",
+      icon: "success",
+      draggable: true,
+    });
   };
 
   return (
     <MainContainer>
       <div className="grid grid-cols-12 mx-auto gap-6 min-h-screen py-20">
         <div className=" col-span-4 space-y-5 py-5 px-2">
-          <div className="border-2 text-center py-10 space-y-1 flexCenter flex-col">
+          <div className="border-2 border-gray-300 text-center py-10 space-y-1 flexCenter flex-col">
             <figure>
               <img className="rounded-full" src={Friends.picture} alt="" />
             </figure>
             <h1 className="font-bold text-2xl">{Friends.name}</h1>
-            <button className="px-5 py-1 rounded-full mt-2 border-2 text-white bg-red-500">
-              {Friends.status}
-            </button>
-            <button className="px-5 py-1 rounded-full mt-2 border-2 text-white bg-green-500">
-              {Friends.tags}
-            </button>
-            <p className="textPrimary font-semibold">
-              "Former colleague, great mentor"
-            </p>
-            <p className="textPrimary">Preferred: email</p>
+            <div className="flex items-center justify-center gap-2">
+              <button className="px-5 py-1 rounded-full mt-2 border-2 border-gray-300 text-white bg-red-500">
+                {Friends.status}
+              </button>
+              <button className="px-5 py-1 rounded-full mt-2 border-2 border-gray-300 text-white bg-green-500">
+                {Friends.tags}
+              </button>
+            </div>
+            <p className="textPrimary font-semibold">{Friends.bio}</p>
+            <p className="textPrimary">Email: {Friends.email}</p>
           </div>
           <div className=" flexCenter flex-col space-y-3">
-            <button className=" flexCenter gap-1 border-1 w-full py-4 font-bold rounded-[5xl]">
+            <button className=" flexCenter gap-1 border-2 border-gray-300 w-full py-4 font-bold rounded-[5xl]">
               <span>
                 <HiOutlineBellSnooze className="w-7 h-7" />
               </span>
               Snooze 2 weeks
             </button>
-            <button className=" flexCenter gap-1 border-1 w-full py-4 font-bold rounded-[5xl]">
+            <button className=" flexCenter gap-1 border-2 border-gray-300 w-full py-4 font-bold rounded-[5xl]">
               <span>
                 <IoArchiveOutline className="w-7 h-7" />
               </span>
               Archive
             </button>
-            <button className=" flexCenter gap-1 border-1 w-full py-4 font-bold rounded-[5xl] text-red-600">
+            <button className=" flexCenter gap-1 border-2 w-full py-4 font-bold rounded-[5xl] text-red-500">
               <span>
                 <RiDeleteBinLine className="w-7 h-7" />
               </span>
@@ -98,51 +114,53 @@ const FriendDetails = () => {
           </div>
         </div>
         <div className="col-span-8 space-y-5 py-5 px-2">
-          <div className="flex items-center justify-between gap-10">
-            <div className=" text-center border-1 px-10 py-5">
+          <div className="grid grid-cols-12 gap-5">
+            <div className=" col-span-4 text-center border-2 border-gray-300 px-10 py-5">
               <h1 className="font-bold text-2xl">
                 {Friends.days_since_contact}
               </h1>
               <p>Days Since Contact</p>
             </div>
-            <div className=" text-center border-1 px-10 py-5">
+            <div className="col-span-4 text-center border-2 border-gray-300 px-10 py-5">
               <h1 className="font-bold text-2xl">{Friends.goal}</h1>
               <p>Goal (Days)</p>
             </div>
-            <div className=" text-center border-1 px-10 py-5">
+            <div className="col-span-4 text-center border-2 border-gray-300 px-10 py-5">
               <h1 className="font-bold text-2xl">{Friends.next_due_date}</h1>
               <p>Next Due</p>
             </div>
           </div>
-          <div className="flex items-start justify-between border-1 py-5 px-2">
+          <div className="flex items-start justify-between border-2 border-gray-300 py-5 px-2 mt-10 py-10">
             <div>
               <h2>Relationship Goal</h2>
               <p>
                 Connect every <span className="font-bold">30 days</span>
               </p>
             </div>
-            <button className="bg-green-100 px-5 py-2 rounded-2xl">Edit</button>
+            <button className="bg-green-200 px-8 py-3 rounded-[10px] cursor-pointer">
+              Edit
+            </button>
           </div>
-          <div>
-            <h1>Quick Check-In</h1>
-            <div className="flex items-center justify-between gap-5">
+          <div className="mt-12">
+            <h1 className="font-bold text-4xl">Quick Check-In</h1>
+            <div className="flex items-center justify-between gap-5 mt-5">
               <button
                 onClick={handleQuickCall}
-                className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]"
+                className="flexCenter flex-col gap-1 border-2 border-gray-300 w-full py-4 font-bold rounded-[6px] transition-all duration-300 hover:bg-[#244D3F] hover:text-white cursor-pointer"
               >
                 <BiPhoneCall className="w-7 h-7" />
                 Call
               </button>
               <button
                 onClick={handleQuickText}
-                className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]"
+                className="flexCenter flex-col gap-1 border-2 border-gray-300 w-full py-4 font-bold rounded-[6px] transition-all duration-300 hover:bg-[#244D3F] hover:text-white cursor-pointer"
               >
                 <MdTextsms className="w-7 h-7" />
                 Text
               </button>
               <button
                 onClick={handleQuickVideo}
-                className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]"
+                className="flexCenter flex-col gap-1 border-2 border-gray-300 w-full py-4 font-bold rounded-[6px] transition-all duration-300 hover:bg-[#244D3F] hover:text-white cursor-pointer"
               >
                 <FaVideo className="w-7 h-7" />
                 Video
