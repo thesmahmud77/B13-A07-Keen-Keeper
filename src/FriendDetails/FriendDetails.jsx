@@ -1,23 +1,24 @@
 import React from "react";
 import MainContainer from "../Container/MainContainer";
-import { useLoaderData, useParams } from "react-router";
+import { useParams } from "react-router";
 import { HiOutlineBellSnooze } from "react-icons/hi2";
 import { IoArchiveOutline } from "react-icons/io5";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiPhoneCall } from "react-icons/bi";
 import { MdTextsms } from "react-icons/md";
 import { FaVideo } from "react-icons/fa";
+import useLoaderApps from "../Hooks/useLoaderApps";
 
 const FriendDetails = () => {
-  const { paramsId } = useParams();
-  //   console.log(id);
-  const friendData = useLoaderData();
-  console.log(friendData);
+  const { id } = useParams();
+  // console.log(id);
+  const { data, loader } = useLoaderApps();
+  // console.log(data);
 
-  //   const firendsdetsils = friendData.find(
-  //     (data) => String(data.id) === paramsId,
-  //   );
-  //   console.log(firendsdetsils);
+  const Friends = data.find((singleDetails) => String(singleDetails.id) === id);
+  // console.log(firendsdetsils);
+  // const {  name, goal } = firendsdetsils;
+  if (loader) return <h1 className="text-center py-20">Loading...</h1>;
 
   return (
     <MainContainer>
@@ -25,14 +26,14 @@ const FriendDetails = () => {
         <div className=" col-span-4 space-y-5 py-5 px-2">
           <div className="border-2 text-center py-10 space-y-1 flexCenter flex-col">
             <figure>
-              <img src="" alt="" />
+              <img className="rounded-full" src={Friends.picture} alt="" />
             </figure>
-            <h1 className="font-bold text-2xl">Emma Wilson</h1>
-            <button className="px-5 py-1 rounded-full mt-2 border-2">
-              Overdue
+            <h1 className="font-bold text-2xl">{Friends.name}</h1>
+            <button className="px-5 py-1 rounded-full mt-2 border-2 text-white bg-red-500">
+              {Friends.status}
             </button>
-            <button className="px-5 py-1 rounded-full mt-2 border-2">
-              family
+            <button className="px-5 py-1 rounded-full mt-2 border-2 text-white bg-green-500">
+              {Friends.tags}
             </button>
             <p className="textPrimary font-semibold">
               "Former colleague, great mentor"
@@ -50,28 +51,30 @@ const FriendDetails = () => {
               <span>
                 <IoArchiveOutline className="w-7 h-7" />
               </span>
-              Snooze 2 weeks
+              Archive
             </button>
-            <button className=" flexCenter gap-1 border-1 w-full py-4 font-bold rounded-[5xl]">
+            <button className=" flexCenter gap-1 border-1 w-full py-4 font-bold rounded-[5xl] text-red-600">
               <span>
                 <RiDeleteBinLine className="w-7 h-7" />
               </span>
-              Snooze 2 weeks
+              Delete
             </button>
           </div>
         </div>
         <div className="col-span-8 space-y-5 py-5 px-2">
           <div className="flex items-center justify-between gap-10">
             <div className=" text-center border-1 px-10 py-5">
-              <h1 className="font-bold text-2xl">62</h1>
+              <h1 className="font-bold text-2xl">
+                {Friends.days_since_contact}
+              </h1>
               <p>Days Since Contact</p>
             </div>
             <div className=" text-center border-1 px-10 py-5">
-              <h1 className="font-bold text-2xl">30</h1>
+              <h1 className="font-bold text-2xl">{Friends.goal}</h1>
               <p>Goal (Days)</p>
             </div>
             <div className=" text-center border-1 px-10 py-5">
-              <h1 className="font-bold text-2xl">Feb 27, 2026</h1>
+              <h1 className="font-bold text-2xl">{Friends.next_due_date}</h1>
               <p>Next Due</p>
             </div>
           </div>

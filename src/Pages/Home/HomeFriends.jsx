@@ -1,10 +1,10 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import useLoaderApps from "../../Hooks/useLoaderApps";
 import FriendsCard from "./FriendsCard";
 
 const HomeFriends = () => {
-  const data = useLoaderData();
-  //   console.log(data);
+  const { data } = useLoaderApps();
+  console.log(data);
   return (
     <div>
       <h1 className="font-bold text-3xl">Your Friends</h1>
