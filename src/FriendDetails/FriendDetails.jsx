@@ -35,8 +35,8 @@ const FriendDetails = () => {
   const handleQuickText = () => {
     const quickCheckData = {
       name: Friends.name,
-      next_due_date: Friends.name,
-      picture: Friends.name,
+      date: Friends.next_due_date,
+      picture: Friends.picture,
       type: "Text",
     };
     // console.log(quickCheckData, "From Friends Details Page");
@@ -45,8 +45,8 @@ const FriendDetails = () => {
   const handleQuickVideo = () => {
     const quickCheckData = {
       name: Friends.name,
-      next_due_date: Friends.name,
-      picture: Friends.name,
+      date: Friends.next_due_date,
+      picture: Friends.picture,
       type: "Call",
     };
     // console.log(quickCheckData, "From Friends Details Page");
