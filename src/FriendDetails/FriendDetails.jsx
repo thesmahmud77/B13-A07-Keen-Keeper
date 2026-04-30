@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import MainContainer from "../Container/MainContainer";
 import { useParams } from "react-router";
 import { HiOutlineBellSnooze } from "react-icons/hi2";
@@ -8,17 +8,30 @@ import { BiPhoneCall } from "react-icons/bi";
 import { MdTextsms } from "react-icons/md";
 import { FaVideo } from "react-icons/fa";
 import useLoaderApps from "../Hooks/useLoaderApps";
+import { AuthContext } from "../Provider/AuthContent";
 
 const FriendDetails = () => {
   const { id } = useParams();
   // console.log(id);
   const { data, loader } = useLoaderApps();
   // console.log(data);
+  const { friendInfo, setFriendInfo } = useContext(AuthContext);
 
   const Friends = data.find((singleDetails) => String(singleDetails.id) === id);
   // console.log(firendsdetsils);
   // const {  name, goal } = firendsdetsils;
   if (loader) return <h1 className="text-center py-20">Loading...</h1>;
+
+  const handleQuickCheck = () => {
+    const quickCheckData = {
+      name: Friends.name,
+      next_due_date: Friends.name,
+      picture: Friends.name,
+      type: "Call",
+    };
+    console.log(quickCheckData, "From Friends Details Page");
+    setFriendInfo([...friendInfo, quickCheckData]);
+  };
 
   return (
     <MainContainer>
@@ -90,7 +103,10 @@ const FriendDetails = () => {
           <div>
             <h1>Quick Check-In</h1>
             <div className="flex items-center justify-between gap-5">
-              <button className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]">
+              <button
+                onClick={handleQuickCheck}
+                className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]"
+              >
                 <BiPhoneCall className="w-7 h-7" />
                 Call
               </button>

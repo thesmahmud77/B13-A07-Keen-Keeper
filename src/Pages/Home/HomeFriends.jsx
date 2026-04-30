@@ -4,7 +4,7 @@ import FriendsCard from "./FriendsCard";
 
 const HomeFriends = () => {
   const { data } = useLoaderApps();
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <h1 className="font-bold text-3xl">Your Friends</h1>
