@@ -22,14 +22,34 @@ const FriendDetails = () => {
   // const {  name, goal } = firendsdetsils;
   if (loader) return <h1 className="text-center py-20">Loading...</h1>;
 
-  const handleQuickCheck = () => {
+  const handleQuickCall = () => {
+    const quickCheckData = {
+      name: Friends.name,
+      date: Friends.next_due_date,
+      picture: Friends.picture,
+      type: "Call",
+    };
+    // console.log(quickCheckData, "From Friends Details Page");
+    setFriendInfo([...friendInfo, quickCheckData]);
+  };
+  const handleQuickText = () => {
+    const quickCheckData = {
+      name: Friends.name,
+      next_due_date: Friends.name,
+      picture: Friends.name,
+      type: "Text",
+    };
+    // console.log(quickCheckData, "From Friends Details Page");
+    setFriendInfo([...friendInfo, quickCheckData]);
+  };
+  const handleQuickVideo = () => {
     const quickCheckData = {
       name: Friends.name,
       next_due_date: Friends.name,
       picture: Friends.name,
       type: "Call",
     };
-    console.log(quickCheckData, "From Friends Details Page");
+    // console.log(quickCheckData, "From Friends Details Page");
     setFriendInfo([...friendInfo, quickCheckData]);
   };
 
@@ -104,17 +124,23 @@ const FriendDetails = () => {
             <h1>Quick Check-In</h1>
             <div className="flex items-center justify-between gap-5">
               <button
-                onClick={handleQuickCheck}
+                onClick={handleQuickCall}
                 className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]"
               >
                 <BiPhoneCall className="w-7 h-7" />
                 Call
               </button>
-              <button className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]">
+              <button
+                onClick={handleQuickText}
+                className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]"
+              >
                 <MdTextsms className="w-7 h-7" />
                 Text
               </button>
-              <button className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]">
+              <button
+                onClick={handleQuickVideo}
+                className=" flexCenter flex-col gap-1 border-1 w-full py-4 font-bold rounded-[6px]"
+              >
                 <FaVideo className="w-7 h-7" />
                 Video
               </button>

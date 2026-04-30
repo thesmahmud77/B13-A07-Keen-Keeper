@@ -1,10 +1,11 @@
 import React from "react";
 import MainContainer from "../../Container/MainContainer";
+import TimelineContent from "./TimelineContent";
 
 const Timeline = () => {
   return (
     <MainContainer>
-      <h1>Timeline</h1>
+      <TimelineContent></TimelineContent>
     </MainContainer>
   );
 };
