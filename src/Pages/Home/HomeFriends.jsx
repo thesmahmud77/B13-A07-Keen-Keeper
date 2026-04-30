@@ -3,8 +3,10 @@ import useLoaderApps from "../../Hooks/useLoaderApps";
 import FriendsCard from "./FriendsCard";
 
 const HomeFriends = () => {
-  const { data } = useLoaderApps();
-  // console.log(data);
+  const { data, loader } = useLoaderApps();
+  if (loader)
+    return <h1 className="text-center font-bold text-xl py-20">Loading...</h1>;
+  // console.log(data);s
   return (
     <div>
       <h1 className="font-bold text-3xl">Your Friends</h1>

@@ -21,7 +21,8 @@ const FriendDetails = () => {
   const Friends = data.find((singleDetails) => String(singleDetails.id) === id);
   // console.log(firendsdetsils);
   // const {  name, goal } = firendsdetsils;
-  if (loader) return <h1 className="text-center py-20">Loading...</h1>;
+  if (loader)
+    return <h1 className="text-center font-bold text-xl py-20">Loading...</h1>;
 
   const handleQuickCall = () => {
     const quickCheckData = {
