@@ -1,11 +1,11 @@
 import React from "react";
 import MainContainer from "../../Container/MainContainer";
-import Navbar from "../../Components/Navbar";
+import StateContent from "./StateContent";
 
 const State = () => {
   return (
     <MainContainer>
-      <h1>State</h1>
+      <StateContent></StateContent>
     </MainContainer>
   );
 };

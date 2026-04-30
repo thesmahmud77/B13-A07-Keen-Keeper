@@ -24,6 +24,7 @@ const FriendDetails = () => {
 
   const handleQuickCall = () => {
     const quickCheckData = {
+      id: Friends.id,
       name: Friends.name,
       date: Friends.next_due_date,
       picture: Friends.picture,
@@ -34,6 +35,7 @@ const FriendDetails = () => {
   };
   const handleQuickText = () => {
     const quickCheckData = {
+      id: Friends.id,
       name: Friends.name,
       date: Friends.next_due_date,
       picture: Friends.picture,
@@ -44,10 +46,11 @@ const FriendDetails = () => {
   };
   const handleQuickVideo = () => {
     const quickCheckData = {
+      id: Friends.id,
       name: Friends.name,
       date: Friends.next_due_date,
       picture: Friends.picture,
-      type: "Call",
+      type: "video",
     };
     // console.log(quickCheckData, "From Friends Details Page");
     setFriendInfo([...friendInfo, quickCheckData]);
